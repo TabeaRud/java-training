@@ -25,8 +25,8 @@ public class Steckbrief {
         long herzschlaege = (long) alter * 365 * 24 * (60 * 70) * 60; // Auch hier hohe Zahl
         System.out.println("Herzschläge: " + herzschlaege);
 
-        System.out.println(8 / 24); // 8 ist nicht durch 24 teilbar, also kommt eine Kommazahl raus, die durch Integer nicht abgebildet wird
-        System.out.println(8.0 / 24); // Durch die Umwandlung der 8 zu einem Double, können die Nachkommastellen abgebildet werden
+        System.out.println(8 / 24); // 0; 8 ist nicht durch 24 teilbar, also kommt eine Kommazahl raus, die durch Integer nicht abgebildet wird
+        System.out.println(8.0 / 24); // 0.3333; Durch die Umwandlung der 8 zu einem Double, können die Nachkommastellen abgebildet werden
 
         System.out.printf("%,d", Long.MAX_VALUE);
     }
