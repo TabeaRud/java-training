@@ -8,34 +8,47 @@ public class Kassenbon {
         String productName = scanner.nextLine().trim();
 
         System.out.println("Price in euro per product?");
-        double pricePerProduct = Double.parseDouble(scanner.nextLine().trim().replace(",", "."));
+        double pricePerProduct = Double.parseDouble(
+                scanner.nextLine().trim().replace(",", ".")
+        );
 
         System.out.println("How many?");
         int quantity = Integer.parseInt(scanner.nextLine().trim());
 
         System.out.println("Is it food?");
         String isItFood = scanner.nextLine().trim().toLowerCase();
-        boolean food = isItFood.contains("j") && isItFood.length() <= 2;
+        boolean food = isItFood.equals("j") || isItFood.equals("ja");
 
+        // Preis einmalig in Cent umrechnen
         int priceInCent = (int) Math.round(pricePerProduct * 100);
-        System.out.println(priceInCent);
 
-        int netto;
+        // Gesamt-Netto
+        int netto = priceInCent * quantity;
+
+        // Steuer
+        int steuer;
         if (food) {
-            netto = priceInCent * 7 / 100;
-        }
-        else {
-            netto = priceInCent * 19 / 100;
+            steuer = Math.round(netto * 7 / 100.0f);
+        } else {
+            steuer = Math.round(netto * 19 / 100.0f);
         }
 
-        System.out.println();
+        // Brutto
+        int brutto = netto + steuer;
+
+        // StringBuilder für den gesamten Bon
         StringBuilder sb = new StringBuilder();
-        sb.append("Product name: " + productName);
-        sb.append("\nBrutto price per product: " + pricePerProduct + " Cents");
-        sb.append("\nQuantity: " + quantity);
-        sb.append("\nIs it food? " + isItFood);
-        sb.append("\nNetto: " + netto + " Cents");
-        String done = sb.toString();
-        System.out.println(done);
+
+        sb.append("=== KASSENBON ===");
+        sb.append("\nProdukt: " + productName);
+        sb.append("\nPreis pro Stück: " + String.format("%.2f", priceInCent / 100.0).replace(".", ",") + " EUR");
+        sb.append("\nMenge: " + quantity);
+        sb.append("\nLebensmittel: " + isItFood);
+        sb.append("\n-----------------");
+        sb.append("\nNetto: " + String.format("%.2f", netto / 100.0).replace(".", ",") + " EUR");
+        sb.append("\nSteuer: " + String.format("%.2f", steuer / 100.0).replace(".", ",") + " EUR");
+        sb.append("\nBrutto: " + String.format("%.2f", brutto / 100.0).replace(".", ",") + " EUR");
+
+        System.out.println(sb);
     }
 }
