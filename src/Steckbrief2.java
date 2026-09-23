@@ -28,7 +28,7 @@ public class Steckbrief2 {
         }
 
         System.out.println("What's your height?");
-        double height = Double.parseDouble(sc.nextLine().trim());
+        double height = Double.parseDouble(sc.nextLine().trim().replace(",", "."));
 
         int yearOfBirth = 2026 - age;
         System.out.printf("%s %s is %d years old, her height is %.2f meters and she was born in %d.", name, surname, age, height, yearOfBirth);
