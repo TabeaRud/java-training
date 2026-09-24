@@ -58,4 +58,3 @@ public class Wochentag {
         return wochentage;
     }
 }
-
