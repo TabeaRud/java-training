@@ -5,8 +5,8 @@ public class Temperatur {
         Scanner sc = new Scanner(System.in);
         System.out.println("Grad Celsius?");
         int celsius = Integer.parseInt(sc.nextLine().trim());
-        int fahrenheit = celsius * 9 / 5 + 32;
+        double fahrenheit = (double) celsius * 9 / 5 + 32;
 
-        System.out.println(celsius + " Grad Celsius sind " + fahrenheit + " Grad Fahrenheit.");
+        System.out.printf("%d Grad Celsius sind %.1f Grad Fahrenheit.",  celsius, fahrenheit);
     }
 }
