@@ -21,7 +21,7 @@ public class Zahlenraten {
                 System.out.println("Zu groß.");
             } else if (guess == geheimzahl) {
                 System.out.println("Richtig geraten!");
-                break;
+                erraten = true;
             }
         }
         System.out.println("Erraten in " + versuche + " Versuchen.");
