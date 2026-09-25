@@ -22,14 +22,16 @@ public class Statistik {
                 maximum = wert;
             }
 
+            minimum(werte);
             if (wert < minimum) {
                 minimum = wert;
             }
         }
 
-        double durchschnitt = (double) summe / werte.length;
+        double durchschnitt = durchschnitt(werte, summe);
+        System.out.println(durchschnitt);
 
-        System.out.println("Summe " + summe);
+        System.out.println("Summe: " + summe);
         System.out.println("Durchschnitt: " + durchschnitt);
         System.out.println("Maximum: " + maximum);
         System.out.println("Minimum: " + minimum);
@@ -37,5 +39,20 @@ public class Statistik {
         for (int i = werte.length - 1; i >= 0; i--) {
             System.out.println(werte[i]);
         }
+    }
+
+    static double durchschnitt(int[] werte, int summe) {
+        double durchschnitt = (double) summe / werte.length;
+        return durchschnitt;
+    }
+
+    static int minimum(int[] werte) {
+        int minimum = werte[0];
+        for (int wert : werte) {
+            if (wert < minimum) {
+                minimum = wert;
+            }
+        }
+        return minimum;
     }
 }
