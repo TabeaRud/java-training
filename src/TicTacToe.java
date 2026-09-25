@@ -20,7 +20,20 @@ public class TicTacToe {
                 System.out.println("Besetzt.");
             } else if (brett[zeile][spalte] == '.') {
                 gespielteZuege++;
+
+                if (hatGewonnen(brett, spieler)) {
+                    drucke(brett);
+                    System.out.printf("Du hast gewonnen! Ingesamt gab es %d gespielte Züge.", gespielteZuege);
+                    break;
+                }
+
+                if (gespielteZuege == 9) {
+                    System.out.println("Unentschieden.");
+                    break;
+                }
+
                 setze(brett, zeile, spalte, spieler);
+
                 if (spieler == 'x') {
                     spieler = 'o';
                 } else {
@@ -52,6 +65,21 @@ public class TicTacToe {
         if (brett[zeile][spalte] == '.') {
             brett[zeile][spalte] = spieler;
             return true;
+        }
+        return false;
+    }
+
+    static boolean hatGewonnen(char[][] brett, char spieler) {
+        for (char i = 0; i < brett.length; i++) {
+            if (brett[i][0] == spieler && brett[i][1] == spieler && brett[i][2] == spieler
+                    || brett[0][i] == spieler && brett[1][i] == spieler && brett[2][i] == spieler) {
+                return true;
+            }
+
+            if (brett[0][0] == spieler && brett[1][1] == spieler && brett[2][2] == spieler
+                    || brett[0][2] == spieler && brett[1][i] == spieler && brett[2][0] == spieler) {
+                return true;
+            }
         }
         return false;
     }
