@@ -7,8 +7,6 @@ public class ComputerRaet {
         int oben = 100;
         int versuche = 0;
         boolean erraten = false;
-        int k;
-        int g;
         int zahl = 16;
 
         while (!erraten) {

@@ -1,23 +1,20 @@
-import java.util.Arrays;
+/* import java.util.Arrays;
 import java.util.Scanner;
 
-public class TicTacToe {
+public class TicTacToe1D {
     void main() {
         Scanner sc = new Scanner(System.in);
-        char[][] brett = new char[3][3];
+        char[] brett = new char[9];
         leere(brett);
 
         char spieler = 'x';
         int gespielteZuege = 0;
         while (gespielteZuege < 9) {
             drucke(brett);
-            System.out.println("Zeile (0-2)?");
-            int zeile = sc.nextInt();
-            System.out.println("Spalte (0-2)?");
-            int spalte = sc.nextInt();
-
-            if (brett[zeile][spalte] != '.') {
-                System.out.println("Besetzt.");
+            System.out.println("Bitte gib eine Zahl von 1 bis 9 ein: ");
+            int zahl = sc.nextInt();
+            if (zahl < 1 && zahl > 9) {
+                System.out.println("Ungültig.");
             } else if (brett[zeile][spalte] == '.') {
                 gespielteZuege++;
 
@@ -54,11 +51,12 @@ public class TicTacToe {
 
     static void drucke(char[][] brett) {
         for (int i = 0; i < brett.length; i++) {
-            for (int j = 0; j < brett[i].length; j++) {
-                System.out.print(brett[i][j] + " ");
+            if (i % 3 == 0) {
+                System.out.println();
             }
-            System.out.println();
+            System.out.println(brett[i]);
         }
+        System.out.println();
     }
 
     static boolean setze(char[][] brett, int zeile, int spalte, char spieler) {
@@ -77,10 +75,12 @@ public class TicTacToe {
             }
 
             if (brett[0][0] == spieler && brett[1][1] == spieler && brett[2][2] == spieler
-                    || brett[0][2] == spieler && brett[1][1] == spieler && brett[2][0] == spieler) {
+                    || brett[0][2] == spieler && brett[1][i] == spieler && brett[2][0] == spieler) {
                 return true;
             }
         }
         return false;
     }
 }
+*/
+

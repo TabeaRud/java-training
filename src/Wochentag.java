@@ -29,7 +29,6 @@ public class Wochentag {
         }
 
         int wochentagNummer = (tag + ((13 * (monat + 1)) / 5) + (jahr % 100) + (jahr % 100 / 4) + ((jahr / 100) / 4) - 2 * (jahr / 100)) % 7;
-        System.out.println(wochentagNummer);
 
         switch (wochentagNummer) {
             case 0 -> System.out.println("Samstag");

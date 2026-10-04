@@ -3,8 +3,7 @@ import java.util.Arrays;
 public class ArrayHelfer {
     static void main() {
         int[] werte = {1, 6, 4, 10, 3};
-        int summe = arraySumme(werte);
-        System.out.println(summe);
+        System.out.println(arraySumme(werte));
         int maximum = arrayMaximum(werte);
         System.out.println(maximum);
         int minimum = arrayMinimum(werte);
@@ -21,7 +20,7 @@ public class ArrayHelfer {
         boolean istPrimzahl = istPrimzahl(7);
         System.out.println("Ist Primzahl: " + istPrimzahl);
 
-        int ggt = ggt(12, 6);
+        int ggt = ggt(1071, 462);
         System.out.println("Der GGT ist: " + ggt);
     }
 
@@ -78,9 +77,9 @@ public class ArrayHelfer {
 
     static int ggt(int a, int b) {
         while (b != 0) {
-            int ggt = a % b;
+            int c = a % b;
             a = b;
-            b = ggt;
+            b = c;
         }
         return a;
     }
